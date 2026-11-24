@@ -12,5 +12,9 @@ if (line.length === 0 || line.length > 200) {
   console.error(`FAIL: entry must be 1-200 characters, got ${line.length}`);
   process.exit(1);
 }
+if (!/[.!?]$/.test(line)) {
+  console.error("FAIL: entry must end with terminal punctuation (. ! ?)");
+  process.exit(1);
+}
 console.log(line);
 console.log(`OK: ${line.length}/200 characters, single line.`);
